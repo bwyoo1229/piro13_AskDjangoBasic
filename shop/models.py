@@ -15,7 +15,7 @@ class Post(models.Model):
     image = models.ImageField(blank=True)
     comment_count = models.PositiveIntegerField(default=0)
     tag_set = models.ManyToManyField('Tag', blank=True)
-    is_publish = models.BooleanField(defualt=False)
+    is_publish = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
