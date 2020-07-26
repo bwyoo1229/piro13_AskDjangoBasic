@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog for Ask Company</title>
-</head>
-<body>
-<h1>Ask Company</h1>
-<h2>{{ item.name }}</h2>
+{% extends 'shop/layout.html' %}
+{% load humanize %}
 
-가격: {{ item.price }}
+{% block content %}
+    <h2>{{ item.name }}</h2>
 
-{% if item.desc %}
-    <p>
-        {{ item.desc }}
-    </p>
-{% endif %}
-</body>
-</html>
+    가격: {{ item.price|intcomma }}원
+
+    {% if item.desc %}
+        <p>
+            {{ item.desc }}
+        </p>
+    {% endif %}
+
+    <hr />
+    <a href="/shop/">목록</a>
+{% endblock %}
+

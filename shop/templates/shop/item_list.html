@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog for Ask Company</title>
-</head>
-<body>
-<h1>Ask Company</h1>
-<form action="">
-    <input type="text" name="q" value="{{ q }}" />
-    <input type="submit" value="검색" />
-</form>
-<hr />
-{% for item in item_list %}
-    <div>
-        <h3>{{ item.name }}</h3>
-        <h4>가격: {{ item.price }}</h4>
-        {%  if item.desc %}
-            <p>{{ item.desc }}</p>
-        {% endif %}
-    </div>
-{% endfor %}
-</body>
-</html>
+{% extends 'shop/layout.html' %}
+
+{% block content %}
+    <form action="">
+        <input type="text" name="q" value="{{ q }}" />
+        <input type="submit" value="검색" />
+    </form>
+    <ul>
+    {% for item in item_list %}
+        <li>
+            <a href="/shop/{{ item.pk }}/">
+                {{ item.name }}
+            </a>
+            {{ item.price }}
+            {{ item.desc }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
